@@ -1,0 +1,42 @@
+{
+  "name": "thread-pool-node",
+  "version": "1.0.4",
+  "description": "Worker threads pool based on generic-pool",
+  "main": "index.js",
+  "homepage": "https://github.com/idan-at/thread-pool-node",
+  "keywords": [
+    "thread",
+    "worker",
+    "worker_threads",
+    "pool",
+    "threadpool"
+  ],
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules package-lock.json",
+    "test": "node --experimental-worker node_modules/.bin/jest",
+    "posttest": "eslint ."
+  },
+  "engines": {
+    "node": ">=10.6.0"
+  },
+  "author": "Idan Attias",
+  "license": "ISC",
+  "dependencies": {
+    "generic-pool": "^3.7.1"
+  },
+  "devDependencies": {
+    "chance": "^1.0.18",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-jest": "^22.10.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2"
+  }
+}
