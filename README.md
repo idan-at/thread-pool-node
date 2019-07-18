@@ -1,5 +1,7 @@
 # Thread Pool
 
+[![npm version](https://badge.fury.io/js/thread-pool-node.svg)](https://badge.fury.io/js/thread-pool-node)
+
 A Thread pool for nodejs worker-threads, which is based on [generic-pool](https://www.npmjs.com/package/generic-pool).
 
 It relies on the generic-pool mechanism to handle the resources.
