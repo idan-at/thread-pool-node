@@ -1,6 +1,7 @@
 # Thread Pool
 
 [![npm version](https://badge.fury.io/js/thread-pool-node.svg)](https://badge.fury.io/js/thread-pool-node)
+[![Build Status](https://travis-ci.org/idan-at/thread-pool-node.svg?branch=master)](https://travis-ci.org/idan-at/thread-pool-node)
 
 A Thread pool for nodejs worker-threads, which is based on [generic-pool](https://www.npmjs.com/package/generic-pool).
 
