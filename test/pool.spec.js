@@ -1,6 +1,6 @@
 const chance = require("chance")();
-const createPool = require("..");
 const messages = require("./messages");
+const createPool = require("..");
 
 describe("Worker Threads Pool", () => {
   let pool;
@@ -71,6 +71,12 @@ describe("Worker Threads Pool", () => {
     test("passes pool options", () => {
       expect(pool.min).toBe(2);
       expect(pool.max).toBe(2);
+    });
+
+    // TODO: remove when https://github.com/coopernurse/node-pool/pull/268/ is merged.
+    test("provides a way to wait until the pool is ready", async () => {
+      await pool.ready();
+      expect(pool.available).toBeGreaterThanOrEqual(2);
     });
   });
 });
