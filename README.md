@@ -5,7 +5,15 @@
 
 A Thread pool for nodejs worker-threads, which is based on [generic-pool](https://www.npmjs.com/package/generic-pool).
 
-It relies on the generic-pool mechanism to handle the resources.
+It relies on the generic-pool infrastructure to handle the resources.
+For info on how to configure the pool to meet your needs, follow the [generic-pool README](https://github.com/coopernurse/node-pool#readme)
+
+## Install
+`npm install thread-pool-node`
+
+or with yarn:
+
+`yarn add thread-pool-node`
 
 ## Usage Example
 ```js
@@ -19,7 +27,7 @@ const pool = createPool({
       magicNumber: 42
     }
   },
-  poolOptions: {
+  poolOptions: { // passed to generic-pool
     min: 2,
     max: 4
   }
@@ -27,8 +35,9 @@ const pool = createPool({
 
 const worker = await pool.acquire();
 const onMessage = result => {
-  // do something with worker
-  doSomeHeavyComputation();
+  // do something with the result
+  console.log({ result });
+
   // release back to thread pool
   pool.release(worker);
   worker.removeListener("message", onMessage);
@@ -43,9 +52,6 @@ worker.postMessage(args);
 const { parentPort, workerData } = require("worker_threads");
 
 parentPort.on("message", message => {
-  parentPort.postMessage({ result: workerData.magicNumber })
+  parentPort.postMessage(aCPUBoundTask(workerData.magicNumber))
 });
 ```
-
-
-For more info regarding how to configure the pool to your needs, please follow the [generic-pool README](https://github.com/coopernurse/node-pool#readme)
