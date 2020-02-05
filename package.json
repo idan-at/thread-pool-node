@@ -8,6 +8,7 @@
     "thread",
     "worker",
     "worker_threads",
+    "worker-threads",
     "pool",
     "threadpool",
     "multithreading",

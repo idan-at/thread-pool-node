@@ -3,10 +3,7 @@
 [![npm version](https://badge.fury.io/js/thread-pool-node.svg)](https://badge.fury.io/js/thread-pool-node)
 [![Build Status](https://travis-ci.org/idan-at/thread-pool-node.svg?branch=master)](https://travis-ci.org/idan-at/thread-pool-node)
 
-A Thread pool for nodejs worker-threads, which is based on [generic-pool](https://www.npmjs.com/package/generic-pool).
-
-It relies on the generic-pool infrastructure to handle the resources.
-For info on how to configure the pool to meet your needs, follow the [generic-pool README](https://github.com/coopernurse/node-pool#readme)
+A Thread pool for nodejs [worker-threads](https://nodejs.org/api/worker_threads.html). It relies on the [generic-pool](https://www.npmjs.com/package/generic-pool) library to handle the resource management.
 
 ## Install
 `npm install thread-pool-node`
@@ -55,3 +52,10 @@ parentPort.on("message", message => {
   parentPort.postMessage(aCPUBoundTask(workerData.magicNumber))
 });
 ```
+
+## Pool Basic API
+- `createPool`: Creates a new worker-threads pool according to the given [pool options](https://github.com/coopernurse/node-pool#createpool)
+- `async Pool#acquire` - Returns a new ready to be used worker from the pool.
+- `async Pool#release` - Releases the worker back to the pool.
+
+For info on how to configure the pool to meet your needs, and more useful pool APIs, see [generic-pool](https://github.com/coopernurse/node-pool#readme)
