@@ -13,25 +13,10 @@ module.exports = ({ workerPath, workerOptions, poolOptions }) => {
   const pool = genericPool.createPool(
     {
       create: () => new Worker(workerPath, workerOptions),
-      destroy: worker => worker.terminate()
+      destroy: (worker) => worker.terminate(),
     },
     poolOptions
   );
-
-  // TODO: remove when https://github.com/coopernurse/node-pool/pull/268/ is merged.
-  pool.ready = function ready() {
-    return new this._Promise(resolve => {
-      const isReady = () => {
-        if (this.available >= this.min) {
-          resolve();
-        } else {
-          setTimeout(isReady, 100);
-        }
-      };
-
-      isReady();
-    });
-  };
 
   return pool;
 };

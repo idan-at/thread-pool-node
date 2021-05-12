@@ -1,4 +1,4 @@
 module.exports = {
   ECHO: "echo",
-  MULTIPLY: "multiply"
+  MULTIPLY: "multiply",
 };

@@ -3,19 +3,19 @@ module.exports = {
     node: true,
     commonjs: true,
     es6: true,
-    jest: true
+    jest: true,
   },
   extends: ["airbnb-base", "prettier", "plugin:jest/recommended"],
   plugins: ["jest", "prettier"],
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2018,
   },
   rules: {
     "no-underscore-dangle": 0,
     "prettier/prettier": "error",
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
   },
   settings: {
-    "import/core-modules": ["worker_threads"]
-  }
+    "import/core-modules": ["worker_threads"],
+  },
 };
